@@ -1,1 +1,45 @@
-<script></script>
+<script>
+    function computerPlay() {
+        let play = Math.floor((Math.random() * 3) + 1);
+        if (play === 3) {
+  shot = "rock";
+} else if (play === 2) {
+  shot = "paper";
+} else {
+  shot = "scissors";
+}
+        return shot;
+        
+    }
+
+    function singleRound() {
+        let computerSelection = computerPlay();
+        let playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase();
+        let winner = `You win, ${playerSelection} beats ${computerSelection}`;
+        let loser = `You lose, ${computerSelection} beats ${playerSelection}`;
+        let tie = `You tied!`
+        if (computerSelection === playerSelection) {
+            return tie;
+        }
+        if (computerSelection === "rock" & playerSelection === "paper") {
+            return winner;
+        }
+        if (computerSelection === "paper" & playerSelection === "scissors") {
+            return winner;
+        }
+        if (computerSelection === "scissors" & playerSelection === "rock") {
+            return winner;
+        }        
+        if (computerSelection === "rock" & playerSelection === "scissors") {
+            return loser;
+        }
+        if (computerSelection === "paper" & playerSelection === "rock") {
+            return loser;
+        }
+        if (computerSelection === "scissors" & playerSelection === "paper") {
+            return loser;
+        }
+    }
+</script>
+
+console.log(computerPlay())
